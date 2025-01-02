@@ -1,47 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculateur de Pourcentage</title>
+    <title>Convertisseur scientifique</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/script.js"></script> <!-- Lien vers le script externe -->
 </head>
 <body>
-    <div class="calculator">
-        <img src="img/hasseebprclogo.svg" alt="Logo" class="logo">
-        <h1>Calculateur de Pourcentage</h1>
-        <div class="form-group">
-            <label for="operation">Choisissez une opération :</label>
-            <select id="operation">
-                <option value="plus">+% (Ajouter)</option>
-                <option value="minus">-% (Soustraire)</option>
+
+<div class="converter-container">
+    <header>
+        <img src="img/hasseebconvlogo.svg" alt="HasseebConv Logo" class="logo">
+    </header>
+    <h1>Convertisseur scientifique</h1>
+    <form id="conversionForm">
+        <div class="mb-3">
+            <label for="type" class="form-label">Sélectionner le type :</label>
+            <select class="form-select" id="type">
+                <option value="length">Longueur</option>
+                <option value="mass">Masse</option>
+                <option value="time">Temps</option>
+                <option value="temperature">Température</option>
+                <option value="volume">Volume</option>
+                <option value="surface">Surface</option>
+                <option value="energy">Énergie</option>
+                <option value="force">Force</option>
+                <option value="speed">Vitesse</option>
+                <option value="pressure">Pression</option>
+                <option value="electricity">Électricité</option>
+                <option value="sound">Son</option>
             </select>
         </div>
-        <div class="form-group">
-            <label for="percentage">Pourcentage :</label>
-            <input type="number" id="percentage" placeholder="Entrez le pourcentage">
-        </div>
-        <div class="form-group">
-            <label for="amount">Montant ou chiffre :</label>
-            <input type="number" id="amount" placeholder="Entrez le montant">
-        </div>
-        <button id="calculate">Calculer</button>
-        <div id="result" class="result"></div>
-    </div>
-    
-    <!-- Contact Section -->
-    <div class="contact-section">
-        <h1>Solutions Personnalisées?</h1>
-        <p>Des calculs simples aux plus complexes, nous vous fournissons la solution adaptée.</p>
-        <button class="contact-btn">Contactez-nous</button>
-    </div>
-    
-    <footer>
-        <p>&copy; 2024 Hasseeb | حسيــب. Tous droits réservés.</p>
-        <p>Powered by <strong>Hasseeb App</strong></p>
-    </footer>
 
-    <!-- Lien vers le fichier JavaScript séparé -->
-    <script src="js/script.js"></script>
+        <div class="mb-3">
+            <label for="from-unit" class="form-label">Convertir de :</label>
+            <select class="form-select" id="from-unit">
+                <!-- Unités à ajouter dynamiquement -->
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="to-unit" class="form-label">Convertir à :</label>
+            <select class="form-select" id="to-unit">
+                <!-- Unités à ajouter dynamiquement -->
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="value" class="form-label">Entrer la valeur :</label>
+            <input type="number" class="form-control" id="value" placeholder="Entrez la valeur à convertir" required>
+        </div>
+
+        <button type="button" class="btn btn-primary w-100" onclick="convert()">Convertir</button>
+    </form>
+
+    <div class="mt-4" id="result" style="display: none;">
+        <h5>Résultat de la conversion :</h5>
+        <p id="output" class="text-success"></p>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div class="contact-section">
+    <h1>Solutions Personnalisées?</h1>
+    <p>De la conversion des unités les plus courantes aux plus complexes, nous vous fournissons l'outil parfait pour toutes vos conversions d'unités.</p>
+    <button class="contact-btn">Contactez-nous</button>
+</div>
+
+<footer>
+    <p>&copy; 2024 Hasseeb | حسيــب. Tous droits réservés.</p>
+    <p>Powered by <strong>Hasseeb App</strong></p>
+</footer>
+
 </body>
 </html>
